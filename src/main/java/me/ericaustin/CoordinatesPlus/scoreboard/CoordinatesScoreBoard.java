@@ -1,14 +1,17 @@
 package me.ericaustin.CoordinatesPlus.scoreboard;
 
-import me.ericaustin.CoordinatesPlus.CoordinatesPlus;
+import me.ericaustin.CoordinatesPlus.utils.Coordinates;
+import me.ericaustin.CoordinatesPlus.utils.PlayerUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
 
 import java.util.HashMap;
 import java.util.UUID;
+
 
 class PlayerMap {
     public Player player;
@@ -41,8 +44,12 @@ class PlayerMap {
 
     public static String entityString(Player p) {
         // create a string from the location
-        return CoordinatesPlus.prettyPlayerName(p.getDisplayName()) + " " +
-                CoordinatesPlus.prettyCoordinatesString(p.getLocation());
+
+        Location location = p.getLocation();
+
+        Coordinates coords = new Coordinates(location);
+
+        return PlayerUtil.getPrettyName(p) + " " + coords.getPrettyString(true);
     }
 }
 

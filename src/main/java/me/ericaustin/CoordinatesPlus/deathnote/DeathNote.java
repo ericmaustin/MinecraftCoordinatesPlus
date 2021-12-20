@@ -2,8 +2,8 @@ package me.ericaustin.CoordinatesPlus.deathnote;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import me.ericaustin.CoordinatesPlus.CoordinatesPlus;
+import me.ericaustin.CoordinatesPlus.utils.Coordinates;
+import me.ericaustin.CoordinatesPlus.utils.PlayerUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -13,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -78,8 +77,10 @@ public class DeathNote {
     public void registerDeath(Player p, String deathMsg) {
         Location location = p.getLocation();
 
-        String msg = CoordinatesPlus.prettyPlayerName(p.getDisplayName()) +
-                        " DIED HERE: " + CoordinatesPlus.prettyCoordinatesString(location);
+        Coordinates coords = new Coordinates(location);
+
+        String msg = PlayerUtil.getPrettyName(p) +
+                        " DIED HERE: " + coords.getPrettyString(false);
 
         Bukkit.broadcastMessage(msg);
 

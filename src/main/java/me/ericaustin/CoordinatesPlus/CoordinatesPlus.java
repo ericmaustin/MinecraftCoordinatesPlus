@@ -3,8 +3,6 @@ package me.ericaustin.CoordinatesPlus;
 import me.ericaustin.CoordinatesPlus.deathnote.DeathNote;
 import me.ericaustin.CoordinatesPlus.events.PlayerEvents;
 import me.ericaustin.CoordinatesPlus.scoreboard.CoordinatesScoreBoard;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class CoordinatesPlus extends JavaPlugin {
@@ -26,16 +24,5 @@ public final class CoordinatesPlus extends JavaPlugin {
         // Plugin shutdown logic
         CoordinatesPlus.scoreboard = null;
         CoordinatesPlus.deathNote = null;
-    }
-
-    public static String prettyCoordinatesString(Location location) {
-        return String.format("%s%.0f" + ChatColor.WHITE + "/%s%.0f" + ChatColor.WHITE + "/%s%.0f",
-                ChatColor.RED, location.getX(),
-                ChatColor.GREEN, location.getY(),
-                ChatColor.BLUE, location.getZ());
-    }
-
-    public static String prettyPlayerName(String name) {
-        return ChatColor.GOLD + name + ChatColor.RESET;
     }
 }
