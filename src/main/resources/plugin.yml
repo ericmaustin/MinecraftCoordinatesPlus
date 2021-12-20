@@ -1,0 +1,6 @@
+name: CoordinatesPlus
+version: '${project.version}'
+main: me.ericaustin.CoordinatesPlus.CoordinatesPlus
+api-version: 1.18
+authors: [ EricAustin ]
+description: Coordinates for players in scoreboard and provided in book upon death
